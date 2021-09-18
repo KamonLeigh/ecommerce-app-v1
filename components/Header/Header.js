@@ -6,7 +6,7 @@ const Header = () => {
         <header className={styles.header}>
             <Container className={styles.headerContainer}>
             <p className={styles.headerTitle}>
-                Leigh&apos;s Store
+                Hyper Bros. Trading Cards
             </p>
             <p className={styles.headerCart}>
                 <FaShoppingCart/>

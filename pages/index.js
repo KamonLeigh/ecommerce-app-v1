@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '@components/Header'
+import Container from '@components/Container'
+import Button from '@components/Button/Button'
 import styles from '@styles/Home.module.scss'
+
+
+import products from '@data/product.json'
+
+
 
 export default function Home() {
   return (
@@ -13,45 +20,61 @@ export default function Home() {
       </Head>
 
         <Header/>
-      <main className={styles.main}>
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <main>
+        <Container>
+          <h1>Hyper Bros. Trading Cards</h1>
+          <h2>Available Cards</h2>
+          <ul className={styles.products}>
+            {products.map(product => (
+              <li key={product.id}>
+                <Image width="864" height="1200" src={product.image} alt={`cart of ${product.title}`}/>
+                <h3 className={styles.productTitle}>{product.title}</h3>
+                <p className={styles.productPrice}>
+                  £{product.price}
+                </p>
+                <p>
+                  <Button>Add to Cart</Button>
+                </p>
+            </li>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+            ))}
+            
+            <li>
+                <img src="/images/bowser-holo.jpg" alt="Bowser Holographic"/>
+                <h3>Bowser Holographic</h3>
+                <p>
+                  £99.99
+                </p>
+                <p>
+                  <button>Add to Cart</button>
+                </p>
+            </li>
+            <li>
+                <img src="/images/bowser-holo.jpg" alt="Bowser Holographic"/>
+                <h3>Bowser Holographic</h3>
+                <p>
+                  £99.99
+                </p>
+                <p>
+                  <button>Add to Cart</button>
+                </p>
+            </li>
+            <li>
+                <img src="/images/bowser-holo.jpg" alt="Bowser Holographic"/>
+                <h3>Bowser Holographic</h3>
+                <p>
+                  £99.99
+                </p>
+                <p>
+                  <button>Add to Cart</button>
+                </p>
+            </li>
+          </ul>
+        </Container>
       </main>
 
       <footer className={styles.footer}>
-       @copy My Store { new Date().getFullYear()}
+       @copy Hyper Bros. Trading Cards { new Date().getFullYear()}
       </footer>
     </div>
   )
