@@ -20,9 +20,16 @@
 }
 
 .headerCart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    button {
+        background-color: transparent;
+        color: inherit;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 
     svg {
         margin-right: 0.5em;
