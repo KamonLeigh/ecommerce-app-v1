@@ -1,3 +1,5 @@
+@import "@styles/util/__util";
+
 $colour-link : #0070f3;
 
 
@@ -17,4 +19,27 @@ $colour-link : #0070f3;
 
 .productPrice {
   margin: .4em 0 0;
+}
+
+.productMargin {
+    padding: 3em 0;
+}
+
+.productImage {
+    @extend %card-image;
+    width: 50%;
+    margin-right: 2em;
+
+    transform: rotate(-2deg)  scale(0.9) translateY(-1em);
+    transition: transform .1s;
+
+  &:hover {
+    transform: rotate(-3deg) scale(1) translateY(-1em);
+    transition: transform .2s;
+  }
+
+
+    & > div {
+        display: block !important;
+    }
 }

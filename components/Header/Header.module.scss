@@ -1,5 +1,7 @@
+@import "@styles/settings/__settings";
+
 .header {
-    background-color: blue;
+    background-color:$colour-brand-blue;
     color: white;
     width: 100%;
 
@@ -15,7 +17,10 @@
 }
 
 .headerTitle {
+    color: $colour-brand-yelloW;
     font-size: 2rem;
+    font-family: $font-family-display;
+    font-weight: $font-family-weight;
     
 }
 
@@ -33,5 +38,6 @@
 
     svg {
         margin-right: 0.5em;
+        color: $colour-brand-yelloW;
     }
 }

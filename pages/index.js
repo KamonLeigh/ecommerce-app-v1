@@ -25,8 +25,8 @@ export default function Home({ products }) {
 
   
         <Container>
-          <h1>Hyper Bros. Trading Cards</h1>
-          <h2>Available Cards</h2>
+          <h1 className="sr-only">Hyper Bros. Trading Cards</h1>
+          <h2 className="sr-only">Available Cards</h2>
           <ul className={styles.products}>
             {products.map(product => {
             const { featuredImage } = product;
@@ -34,7 +34,9 @@ export default function Home({ products }) {
               <li key={product.id}>
               <Link href={`/products/${product.slug}`}>
                 <a>
+                  <div className={styles.productImage}>
                   <Image width={featuredImage.mediaDetails.width} height={featuredImage.mediaDetails.height} src={featuredImage.sourceUrl} alt={featuredImage.altText}/>
+                  </div>
                   <h3 className={styles.productTitle}>{product.title}</h3>
                   <p className={styles.productPrice}>
                     £{product.productPrice}
