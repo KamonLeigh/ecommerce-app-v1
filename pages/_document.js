@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script async src="https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js"></script>
-      <div hidden id="snipcart" data-currency="gbp" data-api-key={process.env.NEXT_PUBLIC_SNIPCART_API}></div>
+      <div hidden id="snipcart" data-currency="gbp" data-api-key={process.env.NEXT_PUBLIC_SNIPCART_API} data-config-modal-style="side" data-templates-url="/snipcart-templates.html"/>
         </body>
       </Html>
     )
