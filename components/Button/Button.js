@@ -1,7 +1,7 @@
 
 import styles from './Button.module.scss';
 
-const Button = ({ children, className, ...rest }) => {
+const Button = ({ children, className, colour, ...rest }) => {
     let buttonClassName = styles.button;
 
     if (className) {
@@ -9,7 +9,7 @@ const Button = ({ children, className, ...rest }) => {
     }
     
     return (
-        <button {...rest} className={buttonClassName}>
+        <button {...rest} className={buttonClassName} data-colour={colour}>
             { children }
         </button>
     )

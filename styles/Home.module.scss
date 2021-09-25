@@ -1,4 +1,5 @@
 @import "@styles/util/__util";
+@import "@styles/settings/__settings";
 $colour-link : #0070f3;
 
 
@@ -33,4 +34,27 @@ $colour-link : #0070f3;
   & > div {
     display: block !important;
   }
+}
+
+.allegianceClassName {
+  border: solid 5px $colour-brand-blue;
+}
+
+.allegiances {
+  margin-top: 1em;
+  margin-bottom: 4em;
+
+  h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
 }

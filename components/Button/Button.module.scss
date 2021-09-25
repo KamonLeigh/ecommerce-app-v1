@@ -10,11 +10,22 @@
     background-color: $colour-brand-green;
     padding: .6em 1em;
     cursor: pointer;
+    
+    &[data-colour="yellow"] {
+        background-color: $colour-brand-yellow;
+        color: $colour-brand-blue;
+    }
 
     &:hover {
         background-color: lighten($colour-brand-green, 10);
         transform: translateY(-3px);
         transition: transform .2s;
+
+
+        &[data-colour="yellow"] {
+            background-color: lighten($colour-brand-yellow, 10);
+            color: $colour-brand-blue;
+        }
 
     }
 
