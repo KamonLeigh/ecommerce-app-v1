@@ -8,6 +8,7 @@ import Button from '@components/Button/Button'
 import styles from '@styles/Home.module.scss'
 
 import { gql, InMemoryCache, ApolloClient} from '@apollo/client';
+import Fuse from 'fuse.js'
 
 //import products from '@data/product.json'
 
@@ -15,6 +16,7 @@ import { gql, InMemoryCache, ApolloClient} from '@apollo/client';
 
 export default function Home({ products, allegiances }) {
     const [ activateAllegiance, setActiveAllegiance] = useState();
+    const [query, setQuery ] = useState();
 
     let activeProducts = products;
 
@@ -23,6 +25,26 @@ export default function Home({ products, allegiances }) {
         const allegianceIds = allegiances.map(({ slug}) => slug);
         return allegianceIds.includes(activateAllegiance);
       })
+    }
+
+    const fuse = new Fuse(activeProducts, {
+      keys: [
+        'title',
+        'allegiances.name'
+      ]
+    })
+
+    if (query) {
+      const results = fuse.search(query);
+
+      activeProducts = results.map(({ item }) => item);
+      
+    }
+
+    function handleOnSearch(event) { 
+      const value = event.currentTarget.value;
+      setQuery(value)
+
     }
 
     return (
@@ -34,6 +56,7 @@ export default function Home({ products, allegiances }) {
       </Head>
         <Container>
           <h1 className="sr-only">Hyper Bros. Trading Cards</h1>
+          <div className={styles.discover}>
           <div className={styles.allegiances}> 
           <h2>Filter by Allegiance</h2>
            <ul>
@@ -55,6 +78,13 @@ export default function Home({ products, allegiances }) {
                   </Button>
             </li>
           </ul> 
+          </div>
+            <div className={styles.search}>
+             <h2>Search</h2>
+             <form>
+              <input onChange={handleOnSearch} type="search"/>
+             </form>
+            </div>
           </div>
           <h2 className="sr-only">Available Cards</h2>
           <ul className={styles.products}>
